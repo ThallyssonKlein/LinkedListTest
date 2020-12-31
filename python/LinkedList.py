@@ -17,6 +17,7 @@ class LinkedList():
             current.next = new_element
         else:
             self.head = new_element
+    
     def append_node_to_head(self, new_element):
         current = new_element
         current.next = self.head
@@ -27,8 +28,7 @@ class LinkedList():
         while current.next:
             current = current.next
         return current
-    def headF(self):
-        return self.head
+    
     def is_empty(self):
         if self.head:
             return False

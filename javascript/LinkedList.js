@@ -1,14 +1,10 @@
-class Node{
-    constructor(value){
-        this.value = value;
-        this.next = null;
-        this.previous = null;
-    }
-}
-module.exports = function LinkedList(head = null){
-    this.head = head;
+module.exports = class LinkedList{
 
-    this.append_node_to_tail = function(new_element){
+    constructor(head = null){
+        this.head = head;
+    }
+
+    append_node_to_tail = function(new_element){
         let current = this.head;
         if(this.head){
             while(current.next){
@@ -21,25 +17,25 @@ module.exports = function LinkedList(head = null){
         }
     }
 
-    this.append_node_to_head = function(new_element){
+    append_node_to_head = function(new_element){
         let current = new_element;
         current.next = this.head;
         this.head = current;
     }
 
-    this.getTail = function(){
+    getTail = function(){
         let current = this.head;
         while(current.next){
             current = current.next;
         }
-        return current;
+        return current.value;
     }
 
-    this.getHead = function(){
-        return this.head;
+    getHead = function(){
+        return this.head.value;
     }
 
-    this.is_empty = function(){
+    isEmpty = function(){
         if(this.head){
             return true;
         }else{
