@@ -8,7 +8,7 @@ public class Node{
     private Node next;
     private Node previous;
 
-    public Node(value){
+    public Node(String value){
         this.value = value;
         this.next = null;
         this.previous = null;

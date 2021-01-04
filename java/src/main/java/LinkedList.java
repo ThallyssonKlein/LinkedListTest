@@ -1,35 +1,42 @@
-public class Customer {
-    
+import lombok.Getter;
+
+public class LinkedList {
+
+    @Getter
     private Node head = null;
 
-    public Customer(Node head) {
+    public LinkedList(Node head) {
         this.head = head;
     }
 
-    public void append_node_to_tail(String new_element){
+    public void append_node_to_tail(Node new_element){
         Node current = this.head;
         if(this.head != null){
-            while(current.next != null){
-                current.next.previous = current;
-                current = current.next;
+            while(current.getNext() != null){
+                current.getNext().setPrevious(current);
+                current = current.getNext();
             }
-            current.next = new_element;
+            current.setNext(new_element);
+        }else{
+            this.head = new_element;
         }
     }
 
-    public Node tail() {
+    public void append_node_to_head(Node new_element){
+        Node current = new_element;
+        current.setNext(this.head);
+        this.head = current;
+    }
+
+    public Node getTail() {
         Node current = this.head;
-        while(current.next != null){
-            current = current.next;
+        while(current.getNext() != null){
+            current = current.getNext();
         }
         return current;
     }
 
-    public Node head() {
-        return this.head;
-    }
-
-    public boolean is_empty() {
+    public boolean isEmpty() {
         if(this.head != null){
             return false;
         }else{
